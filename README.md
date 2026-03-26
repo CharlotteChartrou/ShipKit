@@ -76,3 +76,4 @@ scripts/     Local utility scripts
 ## Getting started
 
 If you want to use the full stack setup, add your Supabase and Stripe credentials, run the Supabase migrations, and start building from there.
+# ShipKit
