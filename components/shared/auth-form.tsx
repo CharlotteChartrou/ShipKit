@@ -52,7 +52,7 @@ export function AuthForm({
       </div>
 
       {message ? (
-        <div className="rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
+        <div className="rounded-2xl border border-slate-200/90 bg-slate-50/90 px-4 py-3 text-sm leading-6 text-slate-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300">
           {message}
         </div>
       ) : null}

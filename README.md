@@ -1,6 +1,6 @@
-# Starter Project
+# SaaSFrame
 
-Starter Project is a premium, developer-first SaaS starter built with Next.js App Router, Supabase, Stripe, and a reusable dashboard UI.
+SaaSFrame is a premium, developer-first SaaS starter built with Next.js App Router, Supabase, Stripe, and a reusable dashboard UI.
 
 It gives you a clean production-ready base for auth, billing, and feature development without overengineering the codebase.
 
@@ -40,7 +40,7 @@ STRIPE_SECRET_KEY=
 STRIPE_WEBHOOK_SECRET=
 STRIPE_PRICE_STARTER=
 RESEND_API_KEY=
-EMAIL_FROM=Starter Project <hello@yourdomain.com>
+EMAIL_FROM=SaaSFrame <hello@yourdomain.com>
 ```
 
 4. Apply the Supabase migrations in `supabase/migrations/`

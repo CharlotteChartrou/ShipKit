@@ -56,7 +56,10 @@ export function getLocaleCopy(locale: Locale) {
       oneTimeForever: locale === "fr" ? "Paiement unique. Acces a vie." : "Pay once. Use forever.",
     },
     brand: {
-      tagline: locale === "fr" ? "Base SaaS générique" : "Generic SaaS starter",
+      tagline:
+        locale === "fr"
+          ? "Construisez votre SaaS sur une base propre"
+          : "Build your SaaS on a clean foundation",
     },
     auth: {
       loginEyebrow: locale === "fr" ? "Connexion" : "Sign in",
@@ -99,8 +102,8 @@ export function getLocaleCopy(locale: Locale) {
       recommendedNext: locale === "fr" ? "Étape suivante" : "Recommended next step",
       nextBody:
         locale === "fr"
-          ? "Personnalisez ce starter project avec vos écrans produit, votre onboarding et votre logique métier."
-          : "Use this starter project as the base for your product screens, onboarding flow, and business logic.",
+          ? "Personnalisez SaaSFrame avec vos ecrans produit, votre onboarding et votre logique metier."
+          : "Use SaaSFrame as the base for your product screens, onboarding flow, and business logic.",
       access: locale === "fr" ? "Accès" : "Access",
       theme: locale === "fr" ? "Thème" : "Theme",
       adaptive: locale === "fr" ? "Adaptatif" : "Adaptive",
@@ -148,11 +151,11 @@ export function getLocaleCopy(locale: Locale) {
       connectedYet: locale === "fr" ? "Pas encore connecté" : "Not connected yet",
       activeSuffix: locale === "fr" ? "actif" : "active",
       offerEyebrow: locale === "fr" ? "Offre unique" : "Single offer",
-      offerTitle: "Starter Kit",
+      offerTitle: "SaaSFrame",
       offerBody:
         locale === "fr"
-          ? "Tout ce qu’il vous faut pour lancer votre SaaS."
-          : "Everything you need to launch your SaaS",
+          ? "Tout ce qu’il vous faut pour lancer votre SaaS sur une base propre."
+          : "Everything you need to launch your SaaS on a clean foundation.",
       purchaseSource: locale === "fr" ? "Achat" : "Purchase",
       purchaseSourceBody: locale === "fr" ? "Vendu via Gumroad" : "Sold through Gumroad",
     },

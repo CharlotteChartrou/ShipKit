@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/shared/legal-page";
 export default function TermsPage() {
   return (
     <LegalPage
-      description="Terms for purchasing and using the ShipKit downloadable SaaS starter kit."
+      description="Terms for purchasing and using the SaaSFrame downloadable SaaS starter."
       title="Terms of service"
     >
       <section className="space-y-2">

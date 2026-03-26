@@ -5,7 +5,7 @@ export function Card({ className, ...props }: HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(
-        "rounded-[28px] border border-slate-200/80 bg-[var(--color-panel)] shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-[var(--color-panel)]",
+        "rounded-[28px] border border-[rgba(99,102,241,0.12)] bg-[var(--color-panel)] shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-[var(--color-panel)]",
         className,
       )}
       {...props}

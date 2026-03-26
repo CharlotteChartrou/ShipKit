@@ -26,11 +26,11 @@ export type ButtonProps = (ButtonAsButtonProps | ButtonAsLinkProps) & {
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "bg-slate-950 text-white shadow-[0_14px_30px_rgba(15,23,42,0.14)] hover:-translate-y-0.5 hover:bg-slate-800 dark:bg-white dark:text-slate-950 dark:shadow-[0_14px_30px_rgba(255,255,255,0.16)] dark:hover:bg-slate-100",
+    "bg-[linear-gradient(135deg,#4F46E5,#7C3AED)] text-white shadow-[0_16px_36px_rgba(79,70,229,0.28)] hover:-translate-y-0.5 hover:shadow-[0_22px_44px_rgba(79,70,229,0.32)] dark:shadow-[0_14px_34px_rgba(79,70,229,0.24)]",
   secondary:
-    "bg-white/90 text-slate-900 ring-1 ring-inset ring-slate-200 shadow-[0_8px_24px_rgba(15,23,42,0.06)] hover:-translate-y-0.5 hover:bg-white dark:bg-white/10 dark:text-white dark:ring-white/10 dark:shadow-none dark:hover:bg-white/14",
+    "bg-white/90 text-slate-900 ring-1 ring-inset ring-[rgba(99,102,241,0.14)] shadow-[0_10px_28px_rgba(79,70,229,0.08)] hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_18px_34px_rgba(79,70,229,0.12)] dark:bg-white/10 dark:text-white dark:ring-white/10 dark:shadow-none dark:hover:bg-white/14",
   ghost:
-    "bg-transparent text-slate-600 hover:bg-slate-950/5 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/6 dark:hover:text-white",
+    "bg-transparent text-slate-600 hover:bg-[rgba(79,70,229,0.08)] hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/6 dark:hover:text-white",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {
@@ -46,7 +46,7 @@ export function Button({
   ...props
 }: ButtonProps) {
   const classes = cn(
-    "inline-flex items-center justify-center rounded-xl font-medium transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-950/20 dark:focus-visible:ring-white/60 disabled:pointer-events-none disabled:translate-y-0 disabled:opacity-50",
+    "inline-flex items-center justify-center rounded-2xl font-medium transition duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500/25 dark:focus-visible:ring-white/60 disabled:pointer-events-none disabled:translate-y-0 disabled:opacity-50",
     variantClasses[variant],
     sizeClasses[size],
     className,

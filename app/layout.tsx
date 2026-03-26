@@ -11,8 +11,8 @@ import { getThemeBootstrapScript } from "@/utils/theme";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Starter Project",
-  description: "A clean Next.js SaaS starter with auth, billing, and a reusable dashboard structure.",
+  title: "SaaSFrame",
+  description: "Build your SaaS on a clean foundation.",
   icons: {
     icon: "/icon.svg",
     shortcut: "/icon.svg",

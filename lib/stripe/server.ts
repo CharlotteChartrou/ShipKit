@@ -9,9 +9,9 @@ const billingPlansByLocale = {
   en: [
     {
       id: "starter",
-      name: "Starter Kit",
+      name: "SaaSFrame",
       price: "$29",
-      description: "Everything you need to launch your SaaS.",
+      description: "Everything you need to launch your SaaS on a clean foundation.",
       features: [
         "Auth and account flows",
         "Stripe checkout and billing sync",
@@ -22,9 +22,9 @@ const billingPlansByLocale = {
   fr: [
     {
       id: "starter",
-      name: "Starter Kit",
+      name: "SaaSFrame",
       price: "$29",
-      description: "Tout ce qu’il vous faut pour lancer votre SaaS.",
+      description: "Tout ce qu’il vous faut pour lancer votre SaaS sur une base propre.",
       features: [
         "Authentification et flux de compte",
         "Checkout Stripe et synchronisation de l’offre",
@@ -62,8 +62,8 @@ export function getPlanById(planId: ManagedPlanId, locale: Locale = "en") {
       price: "$0",
       description:
         locale === "fr"
-          ? "Essayez la base avant d’acheter le starter kit."
-          : "Try the foundation before buying the starter kit.",
+          ? "Essayez la base avant de passer a SaaSFrame."
+          : "Try the foundation before upgrading to SaaSFrame.",
       features: locale === "fr" ? ["Acces de base", "Support communautaire"] : ["Basic access", "Community support"],
     };
   }

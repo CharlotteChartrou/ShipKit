@@ -3,7 +3,7 @@ import { LegalPage } from "@/components/shared/legal-page";
 export default function PrivacyPage() {
   return (
     <LegalPage
-      description="Privacy information for the ShipKit website, authentication flow, and digital product delivery."
+      description="Privacy information for the SaaSFrame website, authentication flow, and digital product delivery."
       title="Privacy policy"
     >
       <section className="space-y-2">

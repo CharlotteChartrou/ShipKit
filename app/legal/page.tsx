@@ -3,12 +3,12 @@ import { LegalPage } from "@/components/shared/legal-page";
 export default function LegalNoticePage() {
   return (
     <LegalPage
-      description="Legal information for the ShipKit website and downloadable SaaS starter kit."
+      description="Legal information for the SaaSFrame website and downloadable SaaS starter."
       title="Legal notice"
     >
       <section className="space-y-2">
         <h2 className="text-xl font-semibold text-slate-950 dark:text-white">Operator</h2>
-        <p>This website is operated by ShipKit.</p>
+        <p>This website is operated by SaaSFrame.</p>
         <p>
           Contact:{" "}
           <a

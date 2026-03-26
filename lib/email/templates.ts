@@ -47,7 +47,7 @@ function emailLayout(params: {
         ${cta}
         <tr>
           <td style="padding:28px 32px 32px;font-size:13px;line-height:1.7;color:#94a3b8;">
-            Starter Project
+            SaaSFrame
           </td>
         </tr>
       </table>
@@ -56,23 +56,23 @@ function emailLayout(params: {
 }
 
 export function renderWelcomeEmail(params: { accountUrl: string; email: string }) {
-  const subject = "Welcome to your starter project";
+  const subject = "Welcome to SaaSFrame";
   const html = emailLayout({
     eyebrow: "Welcome",
     title: "Your account is ready",
     intro: `Thanks for joining with ${params.email}.`,
     body: [
-      "Your project dashboard is ready for you to explore the account settings and billing flows.",
-      "This starter is designed to stay clean and scalable, so you can extend it without reworking the foundation later.",
+      "Your workspace is ready for you to explore account settings and plan flows.",
+      "SaaSFrame is designed to stay clean and scalable, so you can extend it without reworking the foundation later.",
     ],
     ctaHref: params.accountUrl,
     ctaLabel: "Open your account",
   });
   const text = [
-    "Welcome to your starter project",
+    "Welcome to SaaSFrame",
     "",
     `Thanks for joining with ${params.email}.`,
-    "Your project dashboard is ready for you to explore the account settings and billing flows.",
+    "Your workspace is ready for you to explore account settings and plan flows.",
     `Open your account: ${params.accountUrl}`,
   ].join("\n");
 

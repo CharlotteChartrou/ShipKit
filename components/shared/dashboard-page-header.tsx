@@ -14,8 +14,9 @@ export function DashboardPageHeader({
   title,
 }: DashboardPageHeaderProps) {
   return (
-    <div className="relative overflow-hidden rounded-[28px] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(247,250,255,0.76))] p-6 shadow-soft backdrop-blur-xl dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] sm:p-8">
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-300/70 to-transparent dark:via-white/20" />
+    <div className="relative overflow-hidden rounded-[28px] border border-[rgba(99,102,241,0.12)] bg-[linear-gradient(180deg,rgba(255,255,255,0.94),rgba(241,244,255,0.82))] p-6 shadow-[0_24px_70px_rgba(79,70,229,0.08)] backdrop-blur-xl dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.06),rgba(255,255,255,0.03))] dark:shadow-none sm:p-8">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-300/80 to-transparent dark:via-white/20" />
+      <div className="pointer-events-none absolute right-0 top-0 h-32 w-32 rounded-full bg-indigo-400/10 blur-3xl dark:bg-indigo-400/12" />
       <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
       <div className="space-y-3">
         <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500 dark:text-slate-500">

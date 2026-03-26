@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Session } from "@supabase/supabase-js";
 import { logout } from "@/app/(auth)/actions";
-import { StarterProjectLogo } from "@/components/brand/starter-project-logo";
+import { SaaSFrameLogo } from "@/components/brand/saasframe-logo";
 import { Container } from "@/components/shared/container";
 import { LocaleToggle } from "@/components/shared/locale-toggle";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
@@ -20,15 +20,15 @@ export function AppHeader({ locale, session }: AppHeaderProps) {
   const navigation = marketingNavigation(locale);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-200/70 bg-white/72 backdrop-blur-2xl dark:border-white/10 dark:bg-slate-950/72">
+    <header className="sticky top-0 z-40 border-b border-[rgba(99,102,241,0.12)] bg-[rgba(255,255,255,0.72)] backdrop-blur-2xl dark:border-white/10 dark:bg-[rgba(10,14,28,0.74)]">
       <Container className="flex h-[76px] items-center justify-between gap-4">
         <Link href="/">
-          <StarterProjectLogo locale={locale} withTagline />
+          <SaaSFrameLogo locale={locale} withTagline />
         </Link>
 
-        <nav className="hidden items-center gap-2 rounded-full border border-slate-200/80 bg-white/70 px-2 py-1 md:flex dark:border-white/10 dark:bg-white/[0.04]">
+        <nav className="hidden items-center gap-2 rounded-full border border-[rgba(99,102,241,0.12)] bg-white/82 px-2 py-1 shadow-[0_12px_30px_rgba(79,70,229,0.06)] md:flex dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none">
           {navigation.map((item) => (
-            <Link key={item.href} className="rounded-full px-4 py-2 text-sm font-medium text-slate-600 hover:bg-slate-950/[0.04] hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/[0.06] dark:hover:text-white" href={item.href}>
+            <Link key={item.href} className="rounded-full px-4 py-2 text-sm font-medium text-slate-600 hover:bg-[rgba(79,70,229,0.08)] hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/[0.06] dark:hover:text-white" href={item.href}>
               {item.label}
             </Link>
           ))}
@@ -41,7 +41,9 @@ export function AppHeader({ locale, session }: AppHeaderProps) {
             <>
               <span className="hidden max-w-48 truncate text-sm text-slate-500 dark:text-slate-400 sm:inline">{session.user.email}</span>
               <form action={logout}>
-                <Button variant="ghost">{locale === "fr" ? "Se déconnecter" : "Log out"}</Button>
+                <Button type="submit" variant="ghost">
+                  {locale === "fr" ? "Se déconnecter" : "Log out"}
+                </Button>
               </form>
             </>
           ) : (

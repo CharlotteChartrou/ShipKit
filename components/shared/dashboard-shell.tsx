@@ -13,7 +13,7 @@ export function DashboardShell({ children, locale }: DashboardShellProps) {
       <Container className="pb-16 pt-8 sm:pt-10">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
           <DashboardSidebar locale={locale} />
-          <div className="min-w-0 flex-1 rounded-[32px] border border-slate-200/70 bg-white/[0.44] p-3 shadow-[0_24px_80px_rgba(15,23,42,0.06)] backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.03] sm:p-4">
+          <div className="min-w-0 flex-1 rounded-[32px] border border-[rgba(99,102,241,0.12)] bg-[rgba(255,255,255,0.48)] p-3 shadow-[0_30px_90px_rgba(79,70,229,0.08)] backdrop-blur-xl dark:border-white/10 dark:bg-white/[0.03] dark:shadow-none sm:p-4">
             {children}
           </div>
         </div>
