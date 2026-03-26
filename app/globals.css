@@ -1,0 +1,83 @@
+@import "tailwindcss";
+@source "../app";
+@source "../components";
+@source "../lib";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Avenir Next", "Segoe UI", sans-serif;
+  --color-background: #f6f8fc;
+  --color-background-muted: #edf4ff;
+  --color-panel: rgba(255, 255, 255, 0.8);
+  --color-panel-strong: rgba(255, 255, 255, 0.96);
+  --color-border: rgba(15, 23, 42, 0.08);
+  --color-border-strong: rgba(15, 23, 42, 0.16);
+  --color-foreground: #0f172a;
+  --color-foreground-muted: #475569;
+  --color-brand: #0f172a;
+  --color-brand-foreground: #f8fafc;
+  --shadow-soft: 0 24px 80px rgba(15, 23, 42, 0.14);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply min-h-screen bg-background text-foreground antialiased;
+    background-image:
+      radial-gradient(circle at 12% 0%, rgba(56, 189, 248, 0.16), transparent 28%),
+      radial-gradient(circle at 88% 8%, rgba(99, 102, 241, 0.12), transparent 22%),
+      linear-gradient(180deg, #fbfdff 0%, #eef4ff 42%, #f6f8fc 100%);
+  }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(15, 23, 42, 0.03) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(circle at center, black, transparent 82%);
+  }
+
+  a,
+  button,
+  input {
+    @apply transition;
+  }
+}
+
+@layer base {
+  html.dark {
+    --color-background: #07111f;
+    --color-background-muted: #0c1728;
+    --color-panel: rgba(15, 23, 42, 0.7);
+    --color-panel-strong: rgba(9, 16, 31, 0.96);
+    --color-border: rgba(148, 163, 184, 0.16);
+    --color-border-strong: rgba(148, 163, 184, 0.24);
+    --color-foreground: #f8fafc;
+    --color-foreground-muted: #94a3b8;
+    --color-brand: #f8fafc;
+    --color-brand-foreground: #020617;
+    --shadow-soft: 0 24px 80px rgba(2, 6, 23, 0.45);
+  }
+
+  html.dark body {
+    background-image:
+      radial-gradient(circle at 16% 0%, rgba(56, 189, 248, 0.15), transparent 28%),
+      radial-gradient(circle at 86% 12%, rgba(129, 140, 248, 0.12), transparent 18%),
+      linear-gradient(180deg, #08111f 0%, #07111f 42%, #091423 100%);
+  }
+
+  html.dark body::before {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  }
+}
