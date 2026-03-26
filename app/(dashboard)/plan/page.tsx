@@ -4,7 +4,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getGumroadEnv, hasGumroadEnv } from "@/lib/env";
 import { getLocaleCopy } from "@/lib/i18n";
-import { getCurrentLocale } from "@/lib/locale";
+import { localePath } from "@/lib/locale";
+import { getCurrentLocale } from "@/lib/locale-server";
 import { getBillingPlans, getPlanById } from "@/lib/stripe";
 import { getCurrentAppUser } from "@/lib/users";
 
@@ -18,7 +19,7 @@ export default async function PlanPage({
   const [appUser, params] = await Promise.all([getCurrentAppUser(), searchParams]);
 
   if (!appUser) {
-    redirect("/login?next=/plan");
+    redirect(`${localePath(locale, "/login")}?next=/plan`);
   }
 
   const currentPlan = getPlanById(appUser.subscription_plan, locale);

@@ -8,7 +8,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { getCurrentUser } from "@/lib/auth";
 import { getLocaleCopy } from "@/lib/i18n";
-import { getCurrentLocale } from "@/lib/locale";
+import { localePath } from "@/lib/locale";
+import { getCurrentLocale } from "@/lib/locale-server";
 import { getProjectsForCurrentUser } from "@/lib/projects";
 import { getCurrentAppUser } from "@/lib/users";
 
@@ -22,7 +23,7 @@ export default async function DashboardPage() {
   ]);
 
   if (!user || !appUser) {
-    redirect("/login?next=/dashboard");
+    redirect(`${localePath(locale, "/login")}?next=/dashboard`);
   }
 
   return (
@@ -31,10 +32,10 @@ export default async function DashboardPage() {
         actions={
           <>
             <Button asChild variant="secondary">
-              <Link href="/account">{copy.common.viewAccountDetails}</Link>
+              <Link href={localePath(locale, "/account")}>{copy.common.viewAccountDetails}</Link>
             </Button>
             <Button asChild>
-              <Link href="/plan">{copy.common.managePlan}</Link>
+              <Link href={localePath(locale, "/plan")}>{copy.common.managePlan}</Link>
             </Button>
           </>
         }
@@ -60,7 +61,7 @@ export default async function DashboardPage() {
             </p>
           </div>
           <Button asChild variant="secondary">
-            <Link href="/account">{copy.common.viewAccountDetails}</Link>
+            <Link href={localePath(locale, "/account")}>{copy.common.viewAccountDetails}</Link>
           </Button>
         </CardContent>
       </Card>

@@ -3,12 +3,15 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { authFormSchema } from "@/lib/validations/auth";
+import { localePath } from "@/lib/locale";
+import { getCurrentLocale } from "@/lib/locale-server";
 import { createServerSupabaseClient } from "@/lib/supabase";
 import { syncAuthenticatedUser } from "@/lib/users";
 
-function getRedirectTarget(formData: FormData) {
+async function getRedirectTarget(formData: FormData) {
+  const locale = await getCurrentLocale();
   const next = formData.get("next");
-  return typeof next === "string" && next.startsWith("/") ? next : "/dashboard";
+  return typeof next === "string" && next.startsWith("/") ? next : localePath(locale, "/dashboard");
 }
 
 function getAuthPayload(formData: FormData) {
@@ -20,13 +23,14 @@ function getAuthPayload(formData: FormData) {
 
 export async function login(formData: FormData) {
   const payload = getAuthPayload(formData);
-  const next = getRedirectTarget(formData);
+  const locale = await getCurrentLocale();
+  const next = await getRedirectTarget(formData);
   const supabase = await createServerSupabaseClient();
 
   const { error } = await supabase.auth.signInWithPassword(payload);
 
   if (error) {
-    redirect(`/login?message=${encodeURIComponent(error.message)}`);
+    redirect(`${localePath(locale, "/login")}?message=${encodeURIComponent(error.message)}`);
   }
 
   await syncAuthenticatedUser();
@@ -38,6 +42,7 @@ export async function login(formData: FormData) {
 
 export async function signup(formData: FormData) {
   const payload = getAuthPayload(formData);
+  const locale = await getCurrentLocale();
   const origin = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
   const supabase = await createServerSupabaseClient();
 
@@ -45,23 +50,24 @@ export async function signup(formData: FormData) {
     email: payload.email,
     password: payload.password,
     options: {
-      emailRedirectTo: `${origin}/auth/confirm?next=/dashboard`,
+      emailRedirectTo: `${origin}/auth/confirm?next=${encodeURIComponent(localePath(locale, "/dashboard"))}`,
     },
   });
 
   if (error) {
-    redirect(`/signup?message=${encodeURIComponent(error.message)}`);
+    redirect(`${localePath(locale, "/signup")}?message=${encodeURIComponent(error.message)}`);
   }
 
   revalidatePath("/", "layout");
-  redirect("/login?message=Check your email to confirm your account.");
+  redirect(`${localePath(locale, "/login")}?message=Check your email to confirm your account.`);
 }
 
 export async function logout() {
+  const locale = await getCurrentLocale();
   const supabase = await createServerSupabaseClient();
   await supabase.auth.signOut();
   revalidatePath("/", "layout");
   revalidatePath("/dashboard");
   revalidatePath("/profile");
-  redirect("/login?message=You have been signed out.");
+  redirect(`${localePath(locale, "/login")}?message=You have been signed out.`);
 }

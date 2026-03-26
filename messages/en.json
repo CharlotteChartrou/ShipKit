@@ -1,0 +1,187 @@
+{
+  "common": {
+    "signIn": "Sign in",
+    "getStarted": "Get started",
+    "managePlan": "Manage your plan",
+    "viewAccountDetails": "View account",
+    "current": "Current",
+    "light": "Light",
+    "dark": "Dark",
+    "toggleTheme": "Toggle theme",
+    "language": "Language",
+    "french": "FR",
+    "english": "EN",
+    "workspace": "Workspace",
+    "account": "Account",
+    "plan": "Plan",
+    "home": "Home",
+    "getStarterKit": "Get the starter kit",
+    "oneTimeForever": "Pay once. Use forever."
+  },
+  "brand": {
+    "name": "SaaSFrame",
+    "tagline": "Build your SaaS on a clean foundation"
+  },
+  "navigation": {
+    "marketing": {
+      "workspace": "Workspace",
+      "account": "Account",
+      "plan": "Plan"
+    },
+    "dashboard": {
+      "workspace": {
+        "label": "Workspace",
+        "description": "Overview"
+      },
+      "account": {
+        "label": "Account",
+        "description": "Identity"
+      },
+      "plan": {
+        "label": "Plan",
+        "description": "Payments"
+      }
+    }
+  },
+  "auth": {
+    "loginEyebrow": "Sign in",
+    "loginTitle": "Access your app",
+    "loginHint": "Use the password linked to your account.",
+    "loginFooter": "Need an account?",
+    "signupEyebrow": "Get started",
+    "signupTitle": "Create your project",
+    "signupHint": "Use at least 8 characters. You will receive a confirmation email to complete setup.",
+    "signupFooter": "Already set up?",
+    "workEmail": "Email",
+    "password": "Password"
+  },
+  "dashboard": {
+    "title": "Your workspace",
+    "eyebrow": "Workspace",
+    "description": "A clear view of your app, account, and current access state.",
+    "activePlan": "Active plan",
+    "planStatus": "Access status",
+    "workspaceCreated": "Project created",
+    "provisioned": "Created from your authenticated account and ready to customize.",
+    "primaryEmail": "Primary email",
+    "primaryEmailBody": "Used for sign-in, notifications, and billing updates.",
+    "overviewEyebrow": "Project overview",
+    "overviewTitle": "Current state",
+    "workspaceId": "Project ID",
+    "emailVerified": "Email verified",
+    "recommendedNext": "Recommended next step",
+    "nextBody": "Use SaaSFrame as the base for your product screens, onboarding flow, and business logic.",
+    "access": "Access",
+    "theme": "Theme",
+    "adaptive": "Adaptive",
+    "live": "Live",
+    "sessionEyebrow": "Client auth state",
+    "sessionTitle": "Session snapshot",
+    "state": "State",
+    "signedIn": "Signed in",
+    "sessionExpires": "Session expires",
+    "unknown": "Unknown"
+  },
+  "accountPage": {
+    "title": "Account",
+    "description": "Review the identity and access details linked to your workspace.",
+    "identity": "Identity",
+    "created": "Created",
+    "planDetails": "Plan details",
+    "billingCustomerId": "Stripe customer ID",
+    "notCreatedYet": "Not created yet"
+  },
+  "planPage": {
+    "title": "Plan",
+    "description": "A single clear offer with no extra decisions.",
+    "purchaseConfirmed": "Payment confirmed. Access will update as soon as Stripe finishes processing.",
+    "checkoutCanceled": "Checkout was canceled before completion.",
+    "portalUnavailable": "The billing portal is not available for this project yet.",
+    "activePlan": "Active plan",
+    "accessStatus": "Access status",
+    "planPrice": "Plan price",
+    "connectedYet": "Not connected yet",
+    "activeSuffix": "active",
+    "offerEyebrow": "Single offer",
+    "offerTitle": "SaaSFrame",
+    "offerBody": "Everything you need to launch your SaaS on a clean foundation.",
+    "purchaseSource": "Purchase",
+    "purchaseSourceBody": "Sold through Gumroad"
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "SaaSFrame",
+      "title": "Launch your SaaS without rebuilding the basics",
+      "description": "A complete Next.js starter kit with auth, billing, and dashboard — ready to use.",
+      "primaryCta": "Get the starter kit",
+      "secondaryCtaSignedOut": "Sign in",
+      "secondaryCtaSignedIn": "Open your workspace",
+      "trust": [
+        "Built with real SaaS patterns",
+        "Clear and scalable structure",
+        "Designed to save setup time"
+      ]
+    },
+    "whatYouGet": {
+      "eyebrow": "What you get",
+      "title": "Everything you need to start building",
+      "items": [
+        {
+          "title": "Auth",
+          "description": "Sign-up, login, session handling, and protected routes are already in place."
+        },
+        {
+          "title": "Stripe",
+          "description": "Billing flows are already connected so you can start selling faster."
+        },
+        {
+          "title": "Dashboard",
+          "description": "A clean workspace with the pages and layout you need to get started."
+        },
+        {
+          "title": "Clean structure",
+          "description": "A project structure you can understand quickly and extend without friction."
+        }
+      ]
+    },
+    "value": {
+      "eyebrow": "Why it matters",
+      "title": "Save 20+ hours of setup",
+      "description": "Start building your product today."
+    },
+    "socialProof": {
+      "eyebrow": "Developer feedback",
+      "quote": "This saved me days of setup."
+    },
+    "offer": {
+      "eyebrow": "Single offer",
+      "title": "One purchase, no extra decisions",
+      "body": "Pay once. Use forever."
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "What to know before you buy",
+      "items": [
+        {
+          "question": "What am I buying exactly?",
+          "answer": "A downloadable SaaS starter kit with auth, billing, dashboard, and a clean project structure."
+        },
+        {
+          "question": "Who is it for?",
+          "answer": "Developers and indie builders who want to save time and start from a clean base."
+        },
+        {
+          "question": "How do I get access?",
+          "answer": "Buy once, get access to the downloadable starter kit, and start building right away."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Ready to build your SaaS faster?",
+      "description": "Get the starter kit and start working on your product today.",
+      "primaryCta": "Get the starter kit",
+      "secondaryCtaSignedOut": "Sign in",
+      "secondaryCtaSignedIn": "Open your workspace"
+    }
+  }
+}

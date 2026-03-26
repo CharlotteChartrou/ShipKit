@@ -28,9 +28,9 @@ const variantClasses: Record<ButtonVariant, string> = {
   primary:
     "bg-[linear-gradient(135deg,#4F46E5,#7C3AED)] text-white shadow-[0_16px_36px_rgba(79,70,229,0.28)] hover:-translate-y-0.5 hover:shadow-[0_22px_44px_rgba(79,70,229,0.32)] dark:shadow-[0_14px_34px_rgba(79,70,229,0.24)]",
   secondary:
-    "bg-white/90 text-slate-900 ring-1 ring-inset ring-[rgba(99,102,241,0.14)] shadow-[0_10px_28px_rgba(79,70,229,0.08)] hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_18px_34px_rgba(79,70,229,0.12)] dark:bg-white/10 dark:text-white dark:ring-white/10 dark:shadow-none dark:hover:bg-white/14",
+    "bg-white/90 text-slate-900 ring-1 ring-inset ring-[rgba(99,102,241,0.14)] shadow-[0_10px_28px_rgba(79,70,229,0.08)] hover:-translate-y-0.5 hover:bg-white hover:shadow-[0_18px_34px_rgba(79,70,229,0.12)] dark:bg-white/12 dark:text-white dark:ring-white/14 dark:shadow-none dark:hover:bg-white/18",
   ghost:
-    "bg-transparent text-slate-600 hover:bg-[rgba(79,70,229,0.08)] hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/6 dark:hover:text-white",
+    "bg-transparent text-slate-600 hover:bg-[rgba(79,70,229,0.08)] hover:text-slate-950 dark:text-slate-200 dark:hover:bg-white/8 dark:hover:text-white",
 };
 
 const sizeClasses: Record<ButtonSize, string> = {

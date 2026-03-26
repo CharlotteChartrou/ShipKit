@@ -1,0 +1,187 @@
+{
+  "common": {
+    "signIn": "Se connecter",
+    "getStarted": "Commencer",
+    "managePlan": "Gérer votre offre",
+    "viewAccountDetails": "Voir le compte",
+    "current": "Actuel",
+    "light": "Clair",
+    "dark": "Sombre",
+    "toggleTheme": "Changer le thème",
+    "language": "Langue",
+    "french": "FR",
+    "english": "EN",
+    "workspace": "Espace",
+    "account": "Compte",
+    "plan": "Offre",
+    "home": "Accueil",
+    "getStarterKit": "Obtenir le starter kit",
+    "oneTimeForever": "Payez une fois. Utilisez à vie."
+  },
+  "brand": {
+    "name": "SaaSFrame",
+    "tagline": "Construisez votre SaaS sur une base propre"
+  },
+  "navigation": {
+    "marketing": {
+      "workspace": "Espace",
+      "account": "Compte",
+      "plan": "Offre"
+    },
+    "dashboard": {
+      "workspace": {
+        "label": "Espace",
+        "description": "Vue générale"
+      },
+      "account": {
+        "label": "Compte",
+        "description": "Identité"
+      },
+      "plan": {
+        "label": "Offre",
+        "description": "Paiements"
+      }
+    }
+  },
+  "auth": {
+    "loginEyebrow": "Connexion",
+    "loginTitle": "Accédez à votre application",
+    "loginHint": "Utilisez le mot de passe associé à votre compte.",
+    "loginFooter": "Pas encore de compte ?",
+    "signupEyebrow": "Commencer",
+    "signupTitle": "Créer votre projet",
+    "signupHint": "Utilisez au moins 8 caractères. Vous recevrez un email de confirmation pour terminer la configuration.",
+    "signupFooter": "Déjà configuré ?",
+    "workEmail": "Email",
+    "password": "Mot de passe"
+  },
+  "dashboard": {
+    "title": "Votre espace",
+    "eyebrow": "Espace",
+    "description": "Une vue claire de votre application, de votre compte et de votre état d’accès.",
+    "activePlan": "Offre active",
+    "planStatus": "Statut d’accès",
+    "workspaceCreated": "Projet créé",
+    "provisioned": "Créé à partir de votre compte authentifié et prêt à être personnalisé.",
+    "primaryEmail": "Email principal",
+    "primaryEmailBody": "Utilisé pour la connexion, les notifications et la facturation.",
+    "overviewEyebrow": "Vue du projet",
+    "overviewTitle": "État actuel",
+    "workspaceId": "ID du projet",
+    "emailVerified": "Email vérifié",
+    "recommendedNext": "Étape suivante",
+    "nextBody": "Utilisez SaaSFrame comme base pour vos écrans produit, votre onboarding et votre logique métier.",
+    "access": "Accès",
+    "theme": "Thème",
+    "adaptive": "Adaptatif",
+    "live": "Actif",
+    "sessionEyebrow": "État d’auth client",
+    "sessionTitle": "Session active",
+    "state": "État",
+    "signedIn": "Connecté",
+    "sessionExpires": "Expiration",
+    "unknown": "Inconnu"
+  },
+  "accountPage": {
+    "title": "Compte",
+    "description": "Consultez les informations liées à votre espace et à votre accès.",
+    "identity": "Identité",
+    "created": "Créé",
+    "planDetails": "Détails d’offre",
+    "billingCustomerId": "ID client Stripe",
+    "notCreatedYet": "Pas encore créé"
+  },
+  "planPage": {
+    "title": "Offre",
+    "description": "Une offre simple, sans comparaison inutile.",
+    "purchaseConfirmed": "Paiement confirmé. Votre accès sera mis à jour dès que Stripe aura fini le traitement.",
+    "checkoutCanceled": "Le paiement a été annulé avant validation.",
+    "portalUnavailable": "Le portail de facturation n’est pas encore disponible pour ce projet.",
+    "activePlan": "Offre active",
+    "accessStatus": "Statut d’accès",
+    "planPrice": "Prix",
+    "connectedYet": "Pas encore connecté",
+    "activeSuffix": "actif",
+    "offerEyebrow": "Offre unique",
+    "offerTitle": "SaaSFrame",
+    "offerBody": "Tout ce qu’il vous faut pour lancer votre SaaS sur une base propre.",
+    "purchaseSource": "Achat",
+    "purchaseSourceBody": "Vendu via Gumroad"
+  },
+  "landing": {
+    "hero": {
+      "eyebrow": "SaaSFrame",
+      "title": "Lancez votre SaaS sans reconstruire les bases",
+      "description": "Un starter kit Next.js complet avec authentification, paiements et dashboard — prêt à l’emploi.",
+      "primaryCta": "Obtenir le starter kit",
+      "secondaryCtaSignedOut": "Se connecter",
+      "secondaryCtaSignedIn": "Ouvrir votre espace",
+      "trust": [
+        "Construit avec de vrais patterns SaaS",
+        "Structure claire et scalable",
+        "Pensé pour vous faire gagner du temps"
+      ]
+    },
+    "whatYouGet": {
+      "eyebrow": "Ce que vous obtenez",
+      "title": "Tout ce dont vous avez besoin pour commencer",
+      "items": [
+        {
+          "title": "Auth",
+          "description": "Inscription, connexion, sessions et routes protégées sont déjà en place."
+        },
+        {
+          "title": "Stripe",
+          "description": "Les flux de paiement sont déjà connectés pour vendre plus vite."
+        },
+        {
+          "title": "Dashboard",
+          "description": "Un espace clair avec les pages et le layout nécessaires pour démarrer."
+        },
+        {
+          "title": "Structure propre",
+          "description": "Une base que vous comprenez vite et que vous pouvez étendre sans friction."
+        }
+      ]
+    },
+    "value": {
+      "eyebrow": "Pourquoi c’est utile",
+      "title": "Économisez plus de 20 heures de setup",
+      "description": "Commencez à construire votre produit dès aujourd’hui."
+    },
+    "socialProof": {
+      "eyebrow": "Retour développeur",
+      "quote": "Cela m’a fait gagner plusieurs jours de travail."
+    },
+    "offer": {
+      "eyebrow": "Offre simple",
+      "title": "Un seul achat, aucune confusion",
+      "body": "Payez une fois. Utilisez à vie."
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Ce qu’il faut savoir avant d’acheter",
+      "items": [
+        {
+          "question": "Qu’est-ce que j’achète exactement ?",
+          "answer": "Un starter kit SaaS téléchargeable avec auth, paiements, dashboard et structure projet propre."
+        },
+        {
+          "question": "À qui s’adresse ce produit ?",
+          "answer": "Aux développeurs et indie builders qui veulent gagner du temps et partir d’une base propre."
+        },
+        {
+          "question": "Comment j’y accède ?",
+          "answer": "Vous achetez une fois, vous récupérez le starter kit téléchargeable et vous commencez à construire."
+        }
+      ]
+    },
+    "finalCta": {
+      "title": "Prêt à lancer votre SaaS plus rapidement ?",
+      "description": "Obtenez le starter kit et commencez à travailler sur votre produit dès aujourd’hui.",
+      "primaryCta": "Obtenir le starter kit",
+      "secondaryCtaSignedOut": "Se connecter",
+      "secondaryCtaSignedIn": "Ouvrir votre espace"
+    }
+  }
+}

@@ -57,28 +57,29 @@
 
 @layer base {
   html.dark {
-    --color-background: #0a1020;
-    --color-background-muted: #0e1730;
-    --color-panel: rgba(15, 23, 42, 0.72);
-    --color-panel-strong: rgba(9, 16, 31, 0.96);
-    --color-border: rgba(148, 163, 184, 0.16);
-    --color-border-strong: rgba(148, 163, 184, 0.24);
-    --color-foreground: #f8fafc;
-    --color-foreground-muted: #94a3b8;
+    --color-background: #070b16;
+    --color-background-muted: #0b1327;
+    --color-panel: rgba(12, 18, 34, 0.88);
+    --color-panel-strong: rgba(8, 13, 27, 0.96);
+    --color-border: rgba(129, 140, 248, 0.2);
+    --color-border-strong: rgba(165, 180, 252, 0.3);
+    --color-foreground: #f8fbff;
+    --color-foreground-muted: #cbd5e1;
     --color-brand: #818cf8;
     --color-brand-foreground: #020617;
-    --shadow-soft: 0 24px 80px rgba(2, 6, 23, 0.42);
+    --shadow-soft: 0 28px 90px rgba(2, 6, 23, 0.58);
   }
 
   html.dark body {
     background-image:
-      radial-gradient(circle at 16% 0%, rgba(99, 102, 241, 0.16), transparent 28%),
-      radial-gradient(circle at 86% 12%, rgba(168, 85, 247, 0.12), transparent 18%),
-      linear-gradient(180deg, #0a1020 0%, #0a1020 42%, #0d1730 100%);
+      radial-gradient(circle at 16% 0%, rgba(99, 102, 241, 0.2), transparent 28%),
+      radial-gradient(circle at 86% 12%, rgba(168, 85, 247, 0.14), transparent 18%),
+      radial-gradient(circle at 50% 24%, rgba(34, 211, 238, 0.08), transparent 20%),
+      linear-gradient(180deg, #070b16 0%, #070b16 42%, #0a1224 100%);
   }
 
   html.dark body::before {
-    background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   }
 }

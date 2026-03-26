@@ -66,19 +66,21 @@ export function SaaSFrameLogo({
   const copy = getLocaleCopy(locale);
 
   return (
-    <div className={cn("flex items-center gap-3", className)} {...props}>
-      <SaaSFrameMark className={cn("h-10 w-10 shrink-0", iconClassName)} />
+    <div className={cn("flex min-w-0 items-center gap-3", className)} {...props}>
+      <SaaSFrameMark className={cn("h-9 w-9 shrink-0 sm:h-10 sm:w-10", iconClassName)} />
       <div className="min-w-0">
         <p
           className={cn(
-            "text-sm font-semibold tracking-[-0.03em] text-slate-900 dark:text-white",
+            "truncate text-sm font-semibold tracking-[-0.03em] text-slate-900 dark:text-white",
             wordmarkClassName,
           )}
         >
           SaaSFrame
         </p>
         {withTagline ? (
-          <p className="text-xs text-slate-500 dark:text-slate-400">{copy.brand.tagline}</p>
+          <p className="hidden text-xs text-slate-500 dark:text-slate-400 sm:block">
+            {copy.brand.tagline}
+          </p>
         ) : null}
       </div>
     </div>

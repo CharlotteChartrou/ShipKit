@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { marketingNavigation } from "@/lib/navigation";
 import type { Locale } from "@/lib/i18n";
 import { getLocaleCopy } from "@/lib/i18n";
+import { localePath } from "@/lib/locale";
 
 interface AppHeaderProps {
   locale: Locale;
@@ -21,8 +22,8 @@ export function AppHeader({ locale, session }: AppHeaderProps) {
 
   return (
     <header className="sticky top-0 z-40 border-b border-[rgba(99,102,241,0.12)] bg-[rgba(255,255,255,0.72)] backdrop-blur-2xl dark:border-white/10 dark:bg-[rgba(10,14,28,0.74)]">
-      <Container className="flex h-[76px] items-center justify-between gap-4">
-        <Link href="/">
+      <Container className="flex min-h-[76px] items-center justify-between gap-2 py-3 sm:gap-4">
+        <Link className="min-w-0 flex-1" href={localePath(locale, "/")}>
           <SaaSFrameLogo locale={locale} withTagline />
         </Link>
 
@@ -34,7 +35,7 @@ export function AppHeader({ locale, session }: AppHeaderProps) {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
           <LocaleToggle locale={locale} />
           <ThemeToggle locale={locale} />
           {session?.user ? (
@@ -49,10 +50,10 @@ export function AppHeader({ locale, session }: AppHeaderProps) {
           ) : (
             <>
               <Button asChild className="hidden sm:inline-flex" variant="ghost">
-                <Link href="/login">{copy.common.signIn}</Link>
+                <Link href={localePath(locale, "/login")}>{copy.common.signIn}</Link>
               </Button>
               <Button asChild>
-                <Link href="/signup">{copy.common.getStarted}</Link>
+                <Link href={localePath(locale, "/signup")}>{copy.common.getStarted}</Link>
               </Button>
             </>
           )}

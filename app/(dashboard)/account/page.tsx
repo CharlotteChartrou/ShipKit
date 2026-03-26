@@ -4,7 +4,8 @@ import { DashboardPageHeader } from "@/components/shared/dashboard-page-header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getLocaleCopy } from "@/lib/i18n";
-import { getCurrentLocale } from "@/lib/locale";
+import { localePath } from "@/lib/locale";
+import { getCurrentLocale } from "@/lib/locale-server";
 import { getCurrentAppUser } from "@/lib/users";
 
 export default async function AccountPage() {
@@ -13,7 +14,7 @@ export default async function AccountPage() {
   const user = await getCurrentAppUser();
 
   if (!user) {
-    redirect("/login?next=/account");
+    redirect(`${localePath(locale, "/login")}?next=/account`);
   }
 
   return (
@@ -21,7 +22,7 @@ export default async function AccountPage() {
       <DashboardPageHeader
         actions={
           <Button asChild variant="secondary">
-            <Link href="/plan">{copy.common.managePlan}</Link>
+            <Link href={localePath(locale, "/plan")}>{copy.common.managePlan}</Link>
           </Button>
         }
         description={copy.accountPage.description}

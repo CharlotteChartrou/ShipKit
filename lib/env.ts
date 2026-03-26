@@ -86,3 +86,7 @@ export function getGumroadEnv() {
     gumroadProductUrl,
   };
 }
+
+export function getBaseSiteUrl() {
+  return siteUrl;
+}

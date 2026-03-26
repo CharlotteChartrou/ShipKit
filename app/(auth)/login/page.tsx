@@ -2,7 +2,8 @@ import Link from "next/link";
 import { AuthForm } from "@/components/shared/auth-form";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getLocaleCopy } from "@/lib/i18n";
-import { getCurrentLocale } from "@/lib/locale";
+import { localePath } from "@/lib/locale";
+import { getCurrentLocale } from "@/lib/locale-server";
 import { login } from "../actions";
 
 export default async function LoginPage({
@@ -90,7 +91,7 @@ export default async function LoginPage({
               {copy.auth.loginFooter}{" "}
               <Link
                 className="font-medium text-slate-950 hover:text-slate-700 dark:text-white dark:hover:text-slate-200"
-                href="/signup"
+                href={localePath(locale, "/signup")}
               >
                 {copy.common.getStarted}
               </Link>

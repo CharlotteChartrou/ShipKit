@@ -2,6 +2,7 @@ import type { EmailOtpType } from "@supabase/supabase-js";
 import { type NextRequest, NextResponse } from "next/server";
 import { hasEmailEnv } from "@/lib/env";
 import { sendWelcomeEmail } from "@/lib/email/send";
+import { getLocaleFromPathname, localePath } from "@/lib/locale";
 import { createServerSupabaseClient } from "@/lib/supabase";
 
 export async function GET(request: NextRequest) {
@@ -9,6 +10,7 @@ export async function GET(request: NextRequest) {
   const tokenHash = searchParams.get("token_hash");
   const type = searchParams.get("type") as EmailOtpType | null;
   const next = searchParams.get("next") ?? "/dashboard";
+  const nextLocale = getLocaleFromPathname(next) ?? "en";
 
   const redirectTo = request.nextUrl.clone();
   redirectTo.pathname = next.startsWith("/") ? next : "/dashboard";
@@ -40,7 +42,7 @@ export async function GET(request: NextRequest) {
     }
   }
 
-  redirectTo.pathname = "/login";
+  redirectTo.pathname = localePath(nextLocale, "/login");
   redirectTo.searchParams.set("message", "Your confirmation link is invalid or has expired.");
   return NextResponse.redirect(redirectTo);
 }

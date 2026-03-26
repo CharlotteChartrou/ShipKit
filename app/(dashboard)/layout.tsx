@@ -1,7 +1,8 @@
 import { redirect } from "next/navigation";
 import { DashboardShell } from "@/components/shared/dashboard-shell";
-import { getCurrentLocale } from "@/lib/locale";
 import { getCurrentAppUser } from "@/lib/users";
+import { localePath } from "@/lib/locale";
+import { getCurrentLocale } from "@/lib/locale-server";
 
 export default async function AppLayout({
   children,
@@ -12,7 +13,7 @@ export default async function AppLayout({
   const appUser = await getCurrentAppUser();
 
   if (!appUser) {
-    redirect("/login?next=/dashboard");
+    redirect(`${localePath(locale, "/login")}?next=/dashboard`);
   }
 
   return <DashboardShell locale={locale}>{children}</DashboardShell>;
