@@ -7,17 +7,18 @@ const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY ?? "";
 const stripeSecretKey = process.env.STRIPE_SECRET_KEY ?? "";
 const stripeWebhookSecret = process.env.STRIPE_WEBHOOK_SECRET ?? "";
 const stripePriceStarter = process.env.STRIPE_PRICE_STARTER ?? "";
-const stripePricePro = process.env.STRIPE_PRICE_PRO ?? "";
 const resendApiKey = process.env.RESEND_API_KEY ?? "";
 const emailFrom = process.env.EMAIL_FROM ?? "";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+const gumroadProductUrl = process.env.NEXT_PUBLIC_GUMROAD_PRODUCT_URL ?? "";
 
 export const hasSupabaseEnv = Boolean(supabaseUrl && supabasePublishableKey);
 export const hasSupabaseAdminEnv = Boolean(supabaseUrl && supabaseServiceRoleKey);
 export const hasStripeEnv = Boolean(
-  stripeSecretKey && stripeWebhookSecret && stripePriceStarter && stripePricePro,
+  stripeSecretKey && stripeWebhookSecret && stripePriceStarter,
 );
 export const hasEmailEnv = Boolean(resendApiKey && emailFrom);
+export const hasGumroadEnv = Boolean(gumroadProductUrl);
 
 export function getSupabaseEnv() {
   if (!hasSupabaseEnv) {
@@ -48,13 +49,12 @@ export function getSupabaseAdminEnv() {
 export function getStripeEnv() {
   if (!hasStripeEnv) {
     throw new Error(
-      "Missing Stripe environment variables. Set STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, STRIPE_PRICE_STARTER, and STRIPE_PRICE_PRO.",
+      "Missing Stripe environment variables. Set STRIPE_SECRET_KEY, STRIPE_WEBHOOK_SECRET, and STRIPE_PRICE_STARTER.",
     );
   }
 
   return {
     siteUrl,
-    stripePricePro,
     stripePriceStarter,
     stripeSecretKey,
     stripeWebhookSecret,
@@ -72,5 +72,17 @@ export function getEmailEnv() {
     emailFrom,
     resendApiKey,
     siteUrl,
+  };
+}
+
+export function getGumroadEnv() {
+  if (!hasGumroadEnv) {
+    throw new Error(
+      "Missing Gumroad environment variable. Set NEXT_PUBLIC_GUMROAD_PRODUCT_URL.",
+    );
+  }
+
+  return {
+    gumroadProductUrl,
   };
 }

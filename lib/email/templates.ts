@@ -1,4 +1,4 @@
-import type { SubscriptionPlan } from "@/lib/users";
+import type { SubscriptionPlan } from "@/types/auth";
 
 function emailLayout(params: {
   ctaHref?: string;
@@ -47,7 +47,7 @@ function emailLayout(params: {
         ${cta}
         <tr>
           <td style="padding:28px 32px 32px;font-size:13px;line-height:1.7;color:#94a3b8;">
-            Signal
+            Starter Project
           </td>
         </tr>
       </table>
@@ -56,23 +56,23 @@ function emailLayout(params: {
 }
 
 export function renderWelcomeEmail(params: { accountUrl: string; email: string }) {
-  const subject = "Welcome to Signal";
+  const subject = "Welcome to your starter project";
   const html = emailLayout({
     eyebrow: "Welcome",
     title: "Your account is ready",
-    intro: `Thanks for joining Signal with ${params.email}.`,
+    intro: `Thanks for joining with ${params.email}.`,
     body: [
-      "Your workspace is set up and ready for you to explore the dashboard, account settings, and billing flows.",
-      "This starter is designed to stay minimal and scalable, so you can extend it without reworking the foundation later.",
+      "Your project dashboard is ready for you to explore the account settings and billing flows.",
+      "This starter is designed to stay clean and scalable, so you can extend it without reworking the foundation later.",
     ],
     ctaHref: params.accountUrl,
     ctaLabel: "Open your account",
   });
   const text = [
-    "Welcome to Signal",
+    "Welcome to your starter project",
     "",
-    `Thanks for joining Signal with ${params.email}.`,
-    "Your workspace is set up and ready for you to explore the dashboard, account settings, and billing flows.",
+    `Thanks for joining with ${params.email}.`,
+    "Your project dashboard is ready for you to explore the account settings and billing flows.",
     `Open your account: ${params.accountUrl}`,
   ].join("\n");
 
@@ -85,24 +85,24 @@ export function renderSubscriptionConfirmationEmail(params: {
   plan: SubscriptionPlan;
 }) {
   const planLabel = params.plan === "free" ? "Free" : params.plan === "pro" ? "Pro" : "Starter";
-  const subject = `${planLabel} subscription confirmed`;
+  const subject = `${planLabel} plan confirmed`;
   const html = emailLayout({
     eyebrow: "Billing",
-    title: "Your subscription is confirmed",
+    title: "Your plan is confirmed",
     intro: `Your ${planLabel} plan is now active for ${params.email}.`,
     body: [
-      "You can review invoices, payment methods, and future plan changes from the billing section of your dashboard.",
-      "If you need to make changes later, the Stripe customer portal is linked directly from the billing page.",
+      "You can review invoices, payment methods, and future plan changes from the plan section of your workspace.",
+      "If you need to make changes later, the Stripe customer portal is linked directly from the plan page.",
     ],
     ctaHref: params.billingUrl,
     ctaLabel: "Open billing",
   });
   const text = [
-    `${planLabel} subscription confirmed`,
+    `${planLabel} plan confirmed`,
     "",
     `Your ${planLabel} plan is now active for ${params.email}.`,
-    "You can review invoices, payment methods, and future plan changes from the billing section of your dashboard.",
-    `Open billing: ${params.billingUrl}`,
+    "You can review invoices, payment methods, and future plan changes from the plan section of your workspace.",
+    `Open plan: ${params.billingUrl}`,
   ].join("\n");
 
   return { html, subject, text };

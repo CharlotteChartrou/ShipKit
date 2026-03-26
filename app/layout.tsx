@@ -1,17 +1,23 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { AppHeader } from "@/components/layout/app-header";
-import { AuthProvider } from "@/components/providers/auth-provider";
-import { ThemeProvider } from "@/components/providers/theme-provider";
+import { AppHeader } from "@/components/shared/app-header";
+import { AuthProvider } from "@/components/shared/auth-provider";
+import { SiteFooter } from "@/components/shared/site-footer";
+import { ThemeProvider } from "@/components/shared/theme-provider";
 import { hasSupabaseEnv } from "@/lib/env";
 import { getCurrentLocale } from "@/lib/locale";
-import { createClient } from "@/lib/supabase/server";
-import { getThemeBootstrapScript } from "@/lib/theme";
+import { createServerSupabaseClient } from "@/lib/supabase";
+import { getThemeBootstrapScript } from "@/utils/theme";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "ShipKit",
-  description: "Developer SaaS starter with auth, billing, and a modern dashboard UI.",
+  title: "Starter Project",
+  description: "A clean Next.js SaaS starter with auth, billing, and a reusable dashboard structure.",
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default async function RootLayout({
@@ -23,7 +29,7 @@ export default async function RootLayout({
   const locale = await getCurrentLocale();
 
   if (hasSupabaseEnv) {
-    const supabase = await createClient();
+    const supabase = await createServerSupabaseClient();
     session = (await supabase.auth.getSession()).data.session;
   }
 
@@ -38,7 +44,10 @@ export default async function RootLayout({
           <AuthProvider initialSession={session}>
             <div className="relative min-h-screen">
               <AppHeader locale={locale} session={session} />
-              {children}
+              <div className="flex min-h-[calc(100vh-76px)] flex-col">
+                <div className="flex-1">{children}</div>
+                <SiteFooter />
+              </div>
             </div>
           </AuthProvider>
         </ThemeProvider>

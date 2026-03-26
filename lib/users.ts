@@ -1,30 +1,22 @@
 import "server-only";
 
 import type { User } from "@supabase/supabase-js";
-import { createClient } from "@/lib/supabase/server";
-
-export const subscriptionStatuses = [
-  "free",
-  "trialing",
-  "active",
-  "past_due",
-  "canceled",
-] as const;
-
-export type SubscriptionStatus = (typeof subscriptionStatuses)[number];
-export type SubscriptionPlan = "free" | "starter" | "pro";
-
-export interface AppUser {
-  id: string;
-  email: string;
-  created_at: string;
-  subscription_plan: SubscriptionPlan;
-  subscription_status: SubscriptionStatus;
-  stripe_customer_id?: string | null;
-  stripe_subscription_id?: string | null;
-}
+import { createServerSupabaseClient } from "@/lib/supabase";
+import type { AppUser } from "@/types/auth";
+export { subscriptionStatuses, type SubscriptionPlan, type SubscriptionStatus } from "@/types/auth";
 
 const DEVELOPMENT_PRO_EMAIL = "charlottechartrou@email.com";
+
+function normalizeAppUserPlan(appUser: AppUser): AppUser {
+  if (appUser.subscription_plan === "pro") {
+    return {
+      ...appUser,
+      subscription_plan: "starter",
+    };
+  }
+
+  return appUser;
+}
 
 function applyDevelopmentAccessOverride(appUser: AppUser): AppUser {
   if (
@@ -33,7 +25,7 @@ function applyDevelopmentAccessOverride(appUser: AppUser): AppUser {
   ) {
     return {
       ...appUser,
-      subscription_plan: "pro",
+      subscription_plan: "starter",
       subscription_status: "active",
     };
   }
@@ -42,19 +34,21 @@ function applyDevelopmentAccessOverride(appUser: AppUser): AppUser {
 }
 
 function toAppUser(user: User): AppUser {
-  return applyDevelopmentAccessOverride({
-    id: user.id,
-    email: user.email ?? "",
-    created_at: user.created_at,
-    subscription_plan: "free",
-    subscription_status: "free",
-    stripe_customer_id: null,
-    stripe_subscription_id: null,
-  });
+  return applyDevelopmentAccessOverride(
+    normalizeAppUserPlan({
+      id: user.id,
+      email: user.email ?? "",
+      created_at: user.created_at,
+      subscription_plan: "free",
+      subscription_status: "free",
+      stripe_customer_id: null,
+      stripe_subscription_id: null,
+    }),
+  );
 }
 
 export async function syncAuthenticatedUser() {
-  const supabase = await createClient();
+  const supabase = await createServerSupabaseClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -87,11 +81,11 @@ export async function syncAuthenticatedUser() {
     throw new Error(error.message);
   }
 
-  return applyDevelopmentAccessOverride((data ?? toAppUser(user)) as AppUser);
+  return applyDevelopmentAccessOverride(normalizeAppUserPlan((data ?? toAppUser(user)) as AppUser));
 }
 
 export async function getCurrentAppUser() {
-  const supabase = await createClient();
+  const supabase = await createServerSupabaseClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
@@ -107,7 +101,7 @@ export async function getCurrentAppUser() {
     .single();
 
   if (!error && data) {
-    return applyDevelopmentAccessOverride(data as AppUser);
+    return applyDevelopmentAccessOverride(normalizeAppUserPlan(data as AppUser));
   }
 
   if (

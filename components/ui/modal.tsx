@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type PropsWithChildren } from "react";
 import { createPortal } from "react-dom";
-import { cn } from "@/lib/cn";
+import { cn } from "@/utils/cn";
 
 export interface ModalProps extends PropsWithChildren {
   isOpen: boolean;

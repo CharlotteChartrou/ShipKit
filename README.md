@@ -1,33 +1,51 @@
-# ShipKit Starter
+# Starter Project
 
-## What is this?
+Starter Project is a premium, developer-first SaaS starter built with Next.js App Router, Supabase, Stripe, and a reusable dashboard UI.
 
-ShipKit Starter is a clean Next.js SaaS starter with authentication, billing, and a dashboard already in place.
+It gives you a clean production-ready base for auth, billing, and feature development without overengineering the codebase.
 
-It is designed to give developers a solid starting point without spending days rebuilding the same setup work.
+## What’s included
 
-## Features
+- Supabase authentication with signup, login, logout, and session handling
+- Stripe checkout, customer portal, and webhook-based plan sync
+- A reusable dashboard shell with sidebar navigation
+- `Workspace`, `Account`, and `Plan` pages
+- Typed UI primitives in `components/ui`
+- A demo `Projects` feature that shows how to add new product modules
 
-- Supabase authentication
-- Stripe payments
-- Dashboard UI
-- Clean architecture
+## Quick start
 
-## Setup
-
-1. Install dependencies:
+1. Install dependencies
 
 ```bash
 npm install
 ```
 
-2. Create your local environment file:
+2. Create your environment file
 
 ```bash
 cp .env.example .env.local
 ```
 
-3. Start the development server:
+3. Fill in your environment variables
+
+```env
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+NEXT_PUBLIC_GUMROAD_PRODUCT_URL=
+SUPABASE_SERVICE_ROLE_KEY=
+STRIPE_SECRET_KEY=
+STRIPE_WEBHOOK_SECRET=
+STRIPE_PRICE_STARTER=
+RESEND_API_KEY=
+EMAIL_FROM=Starter Project <hello@yourdomain.com>
+```
+
+4. Apply the Supabase migrations in `supabase/migrations/`
+
+5. Start the app
 
 ```bash
 npm run dev
@@ -35,45 +53,77 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## Environment variables
-
-This project uses a local `.env.local` file for configuration.
-
-Start by copying the example file:
-
-```bash
-cp .env.example .env.local
-```
-
-Then add your own values for the services you want to use.
-
-Common variables:
-
-```env
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-STRIPE_SECRET_KEY=
-STRIPE_WEBHOOK_SECRET=
-```
-
-Notes:
-
-- `NEXT_PUBLIC_*` variables are safe to expose to the browser
-- Secret keys should stay server-side only
-- Do not commit `.env.local`
-
 ## Project structure
 
 ```text
-app/         App Router pages and server routes
-components/  Reusable UI and layout components
-lib/         Shared helpers and integrations
-public/      Static assets
-supabase/    SQL migrations
-scripts/     Local utility scripts
+app/
+  (auth)/         Auth pages and server actions
+  (dashboard)/    Protected product routes and dashboard actions
+  api/            Stripe checkout, portal, and webhook routes
+
+components/
+  ui/             Reusable primitives
+  shared/         App shell, auth UI, and cross-feature components
+
+lib/
+  auth.ts         Current-user helpers and auth entrypoints
+  stripe.ts       Stripe entrypoint for plans and billing sync
+  supabase.ts     Supabase entrypoint for browser, server, and admin clients
+  projects.ts     Demo feature data helpers
+
+types/
+  auth.ts         Shared auth and billing types
+  project.ts      Demo feature types
+
+utils/
+  cn.ts           Class name helper
+  theme.ts        Theme bootstrap and persistence helpers
 ```
 
-## Getting started
+## How auth works
 
-If you want to use the full stack setup, add your Supabase and Stripe credentials, run the Supabase migrations, and start building from there.
-# ShipKit
+- Supabase browser and server clients are exposed through [lib/supabase.ts](/Users/Cha/Documents/New%20project/lib/supabase.ts)
+- Route protection happens in [lib/supabase/middleware.ts](/Users/Cha/Documents/New%20project/lib/supabase/middleware.ts)
+- Auth actions live in [app/(auth)/actions.ts](/Users/Cha/Documents/New%20project/app/(auth)/actions.ts)
+- Shared current-user helpers live in [lib/auth.ts](/Users/Cha/Documents/New%20project/lib/auth.ts) and [lib/users.ts](/Users/Cha/Documents/New%20project/lib/users.ts)
+
+## How billing works
+
+- Plan definitions and Stripe helpers live in [lib/stripe.ts](/Users/Cha/Documents/New%20project/lib/stripe.ts)
+- The plan page can link directly to Gumroad through `NEXT_PUBLIC_GUMROAD_PRODUCT_URL`
+- Stripe routes remain available if you want to keep webhook-based access sync later
+- Webhook syncing lives in [app/api/stripe/webhooks/route.ts](/Users/Cha/Documents/New%20project/app/api/stripe/webhooks/route.ts)
+- The user-facing plan page lives in [app/(dashboard)/plan/page.tsx](/Users/Cha/Documents/New%20project/app/(dashboard)/plan/page.tsx)
+
+## How to add a new feature
+
+Use the `Projects` demo feature as the reference implementation.
+
+1. Add a typed model in `types/`
+2. Add your data helpers in `lib/`
+3. Add server actions near the route that owns the feature
+4. Render the UI inside `app/(dashboard)/...`
+
+Reference files:
+
+- [types/project.ts](/Users/Cha/Documents/New%20project/types/project.ts)
+- [lib/projects.ts](/Users/Cha/Documents/New%20project/lib/projects.ts)
+- [app/(dashboard)/dashboard/actions.ts](/Users/Cha/Documents/New%20project/app/(dashboard)/dashboard/actions.ts)
+- [app/(dashboard)/dashboard/page.tsx](/Users/Cha/Documents/New%20project/app/(dashboard)/dashboard/page.tsx)
+
+## Scripts
+
+```bash
+npm run dev
+npm run build
+npm run typecheck
+npm run grant:pro -- --email you@example.com
+npm run build:starter
+```
+
+## Notes
+
+- `.env.local` is local-only and should never be committed
+- `NEXT_PUBLIC_*` values are browser-safe, server keys are not
+- `public/starter-kit.zip` is generated by `npm run build:starter`
+- Apply all Supabase migrations before testing auth, billing, and the demo feature

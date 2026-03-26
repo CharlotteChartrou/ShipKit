@@ -1,9 +1,9 @@
 import "server-only";
 
 import type Stripe from "stripe";
-import { createAdminClient } from "@/lib/supabase/admin";
-import type { SubscriptionPlan, SubscriptionStatus } from "@/lib/users";
+import { createAdminSupabaseClient } from "@/lib/supabase";
 import { normalizePlanId } from "@/lib/stripe/server";
+import type { SubscriptionPlan, SubscriptionStatus } from "@/types/auth";
 
 function mapStripeStatus(status: Stripe.Subscription.Status): SubscriptionStatus {
   switch (status) {
@@ -31,7 +31,7 @@ export async function updateUserSubscriptionByCustomer(params: {
   subscriptionId: string | null;
   subscriptionStatus: SubscriptionStatus;
 }) {
-  const supabase = createAdminClient();
+  const supabase = createAdminSupabaseClient();
   const { error } = await supabase
     .from("users")
     .update({
@@ -81,7 +81,7 @@ export async function attachStripeCustomerToUser(params: {
   subscriptionStatus: SubscriptionStatus;
   userId: string;
 }) {
-  const supabase = createAdminClient();
+  const supabase = createAdminSupabaseClient();
   const { error } = await supabase
     .from("users")
     .update({
@@ -100,11 +100,7 @@ export async function attachStripeCustomerToUser(params: {
 export function getSubscriptionStatusFromCheckoutSession(
   session: Stripe.Checkout.Session,
 ): SubscriptionStatus {
-  if (session.mode !== "subscription") {
-    return "free";
-  }
-
-  return session.payment_status === "paid" ? "active" : "trialing";
+  return session.payment_status === "paid" ? "active" : "free";
 }
 
 export function getSubscriptionPlanFromCheckoutSession(session: Stripe.Checkout.Session): SubscriptionPlan {

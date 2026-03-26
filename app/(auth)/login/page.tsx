@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AuthForm } from "@/components/auth/auth-form";
+import { AuthForm } from "@/components/shared/auth-form";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { getLocaleCopy } from "@/lib/i18n";
 import { getCurrentLocale } from "@/lib/locale";

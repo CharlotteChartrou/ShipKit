@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes, ReactElement, ReactNode } from "react";
 import { cloneElement, isValidElement } from "react";
-import { cn } from "@/lib/cn";
+import { cn } from "@/utils/cn";
 
 type ButtonVariant = "primary" | "secondary" | "ghost";
 type ButtonSize = "md" | "lg";

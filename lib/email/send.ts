@@ -1,6 +1,6 @@
 import "server-only";
 
-import type { SubscriptionPlan } from "@/lib/users";
+import type { SubscriptionPlan } from "@/types/auth";
 import { getEmailEnv, hasEmailEnv } from "@/lib/env";
 import { getResend } from "@/lib/email/resend";
 import {
@@ -55,7 +55,7 @@ export async function sendSubscriptionConfirmationEmail(params: {
   const template = renderSubscriptionConfirmationEmail({
     email: params.email,
     plan: params.plan,
-    billingUrl: `${siteUrl}/billing`,
+    billingUrl: `${siteUrl}/plan`,
   });
 
   await sendEmail({

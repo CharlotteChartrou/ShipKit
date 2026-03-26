@@ -2,10 +2,10 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 import { getStripeEnv } from "@/lib/env";
 import { getCurrentAppUser } from "@/lib/users";
-import { getPriceIdForPlan, getStripe, type BillingPlanId } from "@/lib/stripe/server";
+import { getPriceIdForPlan, getStripe, type BillingPlanId } from "@/lib/stripe";
 
 const checkoutSchema = z.object({
-  planId: z.enum(["starter", "pro"]),
+  planId: z.literal("starter"),
 });
 
 export async function POST(request: Request) {
@@ -15,14 +15,14 @@ export async function POST(request: Request) {
   });
 
   if (!parsed.success) {
-    return NextResponse.redirect(new URL("/pricing", request.url), { status: 303 });
+    return NextResponse.redirect(new URL("/plan", request.url), { status: 303 });
   }
 
   const appUser = await getCurrentAppUser();
 
   if (!appUser) {
     const loginUrl = new URL("/login", request.url);
-    loginUrl.searchParams.set("next", "/pricing");
+    loginUrl.searchParams.set("next", "/plan");
     return NextResponse.redirect(loginUrl, { status: 303 });
   }
 
@@ -30,11 +30,11 @@ export async function POST(request: Request) {
   const { siteUrl } = getStripeEnv();
   const planId = parsed.data.planId as BillingPlanId;
   const priceId = getPriceIdForPlan(planId);
-  const successUrl = `${siteUrl}/dashboard?checkout=success&unlocked=starter-kit`;
-  const cancelUrl = `${siteUrl}/billing?checkout=cancelled`;
+  const successUrl = `${siteUrl}/plan?checkout=success`;
+  const cancelUrl = `${siteUrl}/plan?checkout=cancelled`;
 
   const session = await stripe.checkout.sessions.create({
-    mode: "subscription",
+    mode: "payment",
     line_items: [
       {
         price: priceId,
@@ -49,12 +49,6 @@ export async function POST(request: Request) {
     metadata: {
       plan_id: planId,
       supabase_user_id: appUser.id,
-    },
-    subscription_data: {
-      metadata: {
-        plan_id: planId,
-        supabase_user_id: appUser.id,
-      },
     },
   });
 

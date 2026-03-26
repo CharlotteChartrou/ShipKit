@@ -1,10 +1,10 @@
 import "server-only";
 
-import type { AppUser } from "@/lib/users";
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createAdminSupabaseClient } from "@/lib/supabase";
+import type { AppUser } from "@/types/auth";
 
 export async function getAppUserById(userId: string) {
-  const supabase = createAdminClient();
+  const supabase = createAdminSupabaseClient();
   const { data, error } = await supabase
     .from("users")
     .select("id, email, created_at, subscription_plan, subscription_status, stripe_customer_id, stripe_subscription_id")
@@ -19,7 +19,7 @@ export async function getAppUserById(userId: string) {
 }
 
 export async function getAppUserByEmail(email: string) {
-  const supabase = createAdminClient();
+  const supabase = createAdminSupabaseClient();
   const { data, error } = await supabase
     .from("users")
     .select("id, email, created_at, subscription_plan, subscription_status, stripe_customer_id, stripe_subscription_id")
@@ -43,7 +43,7 @@ export async function grantProAccess({ email, userId }: GrantProAccessParams) {
     throw new Error("Provide either an email or a userId.");
   }
 
-  const supabase = createAdminClient();
+  const supabase = createAdminSupabaseClient();
   const column = userId ? "id" : "email";
   const value = userId ?? email;
 

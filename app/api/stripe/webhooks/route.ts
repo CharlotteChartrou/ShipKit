@@ -2,14 +2,14 @@ import type Stripe from "stripe";
 import { NextResponse } from "next/server";
 import { getStripeEnv, hasEmailEnv } from "@/lib/env";
 import { sendSubscriptionConfirmationEmail } from "@/lib/email/send";
-import { getStripe } from "@/lib/stripe/server";
+import { getStripe } from "@/lib/stripe";
 import {
   attachStripeCustomerToUser,
   getSubscriptionPlanFromCheckoutSession,
   getSubscriptionStatusFromCheckoutSession,
   updateUserSubscriptionByCustomer,
   updateUserSubscriptionFromSubscription,
-} from "@/lib/stripe/subscriptions";
+} from "@/lib/stripe";
 import { getAppUserById } from "@/lib/users-admin";
 
 export async function POST(request: Request) {

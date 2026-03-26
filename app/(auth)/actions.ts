@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { authFormSchema } from "@/lib/validations/auth";
-import { createClient } from "@/lib/supabase/server";
+import { createServerSupabaseClient } from "@/lib/supabase";
 import { syncAuthenticatedUser } from "@/lib/users";
 
 function getRedirectTarget(formData: FormData) {
@@ -21,7 +21,7 @@ function getAuthPayload(formData: FormData) {
 export async function login(formData: FormData) {
   const payload = getAuthPayload(formData);
   const next = getRedirectTarget(formData);
-  const supabase = await createClient();
+  const supabase = await createServerSupabaseClient();
 
   const { error } = await supabase.auth.signInWithPassword(payload);
 
@@ -39,7 +39,7 @@ export async function login(formData: FormData) {
 export async function signup(formData: FormData) {
   const payload = getAuthPayload(formData);
   const origin = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-  const supabase = await createClient();
+  const supabase = await createServerSupabaseClient();
 
   const { error } = await supabase.auth.signUp({
     email: payload.email,
@@ -58,7 +58,7 @@ export async function signup(formData: FormData) {
 }
 
 export async function logout() {
-  const supabase = await createClient();
+  const supabase = await createServerSupabaseClient();
   await supabase.auth.signOut();
   revalidatePath("/", "layout");
   revalidatePath("/dashboard");
