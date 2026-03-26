@@ -42,7 +42,7 @@ export default async function PlanPage({
       />
 
       {message ? (
-        <div className="max-w-3xl rounded-2xl border border-slate-200 bg-white/80 px-4 py-3 text-sm text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
+        <div className="max-w-3xl rounded-2xl border border-[rgba(99,102,241,0.12)] bg-white/82 px-4 py-3 text-sm text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
           {message}
         </div>
       ) : null}
@@ -55,15 +55,15 @@ export default async function PlanPage({
           </CardHeader>
           <CardContent className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
             <div className="grid gap-4">
-              <div className="rounded-2xl border border-slate-200 bg-white/80 p-4 dark:border-white/10 dark:bg-white/5">
+              <div className="rounded-2xl border border-[rgba(99,102,241,0.12)] bg-white/82 p-4 dark:border-white/10 dark:bg-white/5">
                 <p className="text-slate-500 dark:text-slate-400">{copy.planPage.accessStatus}</p>
                 <p className="mt-1 text-slate-950 dark:text-white capitalize">{appUser.subscription_status}</p>
               </div>
-              <div className="rounded-2xl border border-slate-200 bg-white/80 p-4 dark:border-white/10 dark:bg-white/5">
+              <div className="rounded-2xl border border-[rgba(99,102,241,0.12)] bg-white/82 p-4 dark:border-white/10 dark:bg-white/5">
                 <p className="text-slate-500 dark:text-slate-400">{copy.planPage.planPrice}</p>
                 <p className="mt-1 text-slate-950 dark:text-white">{currentPlan.price}</p>
               </div>
-              <div className="rounded-2xl border border-slate-200 bg-white/80 p-4 dark:border-white/10 dark:bg-white/5">
+              <div className="rounded-2xl border border-[rgba(99,102,241,0.12)] bg-white/82 p-4 dark:border-white/10 dark:bg-white/5">
                 <p className="text-slate-500 dark:text-slate-400">{copy.planPage.purchaseSource}</p>
                 <p className="mt-1 text-slate-950 dark:text-white">{copy.planPage.purchaseSourceBody}</p>
               </div>
@@ -71,7 +71,7 @@ export default async function PlanPage({
           </CardContent>
         </Card>
 
-        <Card className="relative overflow-hidden border-slate-300 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,247,255,0.9))] dark:border-white/20 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))]">
+        <Card className="relative overflow-hidden border-[rgba(99,102,241,0.18)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(240,243,255,0.92))] shadow-[0_26px_70px_rgba(79,70,229,0.12)] dark:border-white/20 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] dark:shadow-none">
           {appUser.subscription_status === "active" ? (
             <div className="absolute right-6 top-6 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 dark:border-emerald-400/20 dark:bg-emerald-400/10 dark:text-emerald-300">
               {copy.common.current}
@@ -89,7 +89,7 @@ export default async function PlanPage({
             </div>
             <ul className="space-y-2 text-sm text-slate-700 dark:text-slate-300">
               {starterKitPlan.features.map((feature) => (
-                <li className="rounded-2xl border border-slate-200 bg-slate-50/80 px-4 py-3 dark:border-white/8 dark:bg-white/4" key={feature}>
+                <li className="rounded-2xl border border-[rgba(99,102,241,0.12)] bg-slate-50/84 px-4 py-3 dark:border-white/8 dark:bg-white/4" key={feature}>
                   {feature}
                 </li>
               ))}

@@ -52,7 +52,7 @@ export function getLocaleCopy(locale: Locale) {
       account: locale === "fr" ? "Compte" : "Account",
       plan: locale === "fr" ? "Offre" : "Plan",
       home: locale === "fr" ? "Accueil" : "Home",
-      getStarterKit: locale === "fr" ? "Obtenir le starter kit" : "Get the starter kit",
+      getStarterKit: locale === "fr" ? "Obtenir SaaSFrame" : "Get SaaSFrame",
       oneTimeForever: locale === "fr" ? "Paiement unique. Acces a vie." : "Pay once. Use forever.",
     },
     brand: {

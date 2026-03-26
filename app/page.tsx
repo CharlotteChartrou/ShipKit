@@ -14,13 +14,13 @@ export default async function HomePage() {
   const content =
     locale === "fr"
       ? {
-          eyebrow: "Starter Kit",
-          title: "Tout ce qu’il faut pour lancer votre SaaS, sans refaire le setup a chaque fois.",
+          eyebrow: "SaaSFrame",
+          title: "Construisez votre SaaS sur une base propre.",
           description:
-            "ShipKit est une base Next.js propre et deja structuree avec auth, dashboard et paiements pour vous laisser avancer sur votre vrai produit.",
-          primaryCta: appUser ? "Ouvrir votre espace" : "Obtenir le starter kit",
+            "SaaSFrame est une base Next.js premium avec auth, dashboard et paiements deja structures pour vous laisser avancer sur votre vrai produit.",
+          primaryCta: appUser ? "Ouvrir votre espace" : "Obtenir SaaSFrame",
           primaryHref: appUser ? "/dashboard" : "/plan",
-          secondaryCta: appUser ? "Gerer votre offre" : "Voir la demo du produit",
+          secondaryCta: appUser ? "Gerer votre offre" : "Voir l’aperçu du produit",
           secondaryHref: appUser ? "/plan" : "/login",
           trust: [
             "Patterns SaaS reels",
@@ -55,7 +55,7 @@ export default async function HomePage() {
           ],
           offerEyebrow: "Offre simple",
           offerTitle: "Un seul achat, zero confusion",
-          offerBody: "Payez une fois. Utilisez la base librement pour construire votre produit.",
+          offerBody: "Payez une fois. Utilisez SaaSFrame librement comme base de votre produit.",
           faqEyebrow: "Questions frequentes",
           faqTitle: "Ce qu’il faut savoir avant d’acheter",
           faqItems: [
@@ -77,19 +77,19 @@ export default async function HomePage() {
           ],
           finalTitle: "Pret a partir d’une base serieuse ?",
           finalBody:
-            "Recuperez le starter kit, adaptez-le a votre produit, puis avancez directement sur ce qui vous differencie.",
-          finalPrimary: "Obtenir le starter kit",
+            "Recuperez SaaSFrame, adaptez-le a votre produit, puis avancez directement sur ce qui vous differencie.",
+          finalPrimary: "Obtenir SaaSFrame",
           finalSecondary: appUser ? "Ouvrir votre espace" : "Se connecter",
           finalSecondaryHref: appUser ? "/dashboard" : "/login",
         }
       : {
-          eyebrow: "Starter Kit",
-          title: "Everything you need to launch your SaaS without rebuilding the same setup every time.",
+          eyebrow: "SaaSFrame",
+          title: "Build your SaaS on a clean foundation.",
           description:
-            "ShipKit is a clean Next.js foundation with auth, dashboard, and payment structure already in place so you can focus on the product itself.",
-          primaryCta: appUser ? "Open your workspace" : "Get the starter kit",
+            "SaaSFrame is a premium Next.js foundation with auth, dashboard, and payment structure already in place so you can focus on the product itself.",
+          primaryCta: appUser ? "Open your workspace" : "Get SaaSFrame",
           primaryHref: appUser ? "/dashboard" : "/plan",
-          secondaryCta: appUser ? "Manage your plan" : "View the product demo",
+          secondaryCta: appUser ? "Manage your plan" : "View product preview",
           secondaryHref: appUser ? "/plan" : "/login",
           trust: [
             "Built with real SaaS patterns",
@@ -124,7 +124,7 @@ export default async function HomePage() {
           ],
           offerEyebrow: "Single offer",
           offerTitle: "One purchase, no extra decisions",
-          offerBody: "Pay once. Use the foundation as the starting point for your SaaS.",
+          offerBody: "Pay once. Use SaaSFrame as the foundation for your SaaS.",
           faqEyebrow: "FAQ",
           faqTitle: "What to know before you buy",
           faqItems: [
@@ -146,8 +146,8 @@ export default async function HomePage() {
           ],
           finalTitle: "Ready to start from a serious foundation?",
           finalBody:
-            "Get the starter kit, adapt it to your product, and spend your time on what makes your SaaS unique.",
-          finalPrimary: "Get the starter kit",
+            "Get SaaSFrame, adapt it to your product, and spend your time on what makes your SaaS unique.",
+          finalPrimary: "Get SaaSFrame",
           finalSecondary: appUser ? "Open your workspace" : "Sign in",
           finalSecondaryHref: appUser ? "/dashboard" : "/login",
         };
@@ -156,10 +156,10 @@ export default async function HomePage() {
     <main>
       <Container className="pb-24 pt-12 sm:pt-20">
         <div className="mx-auto max-w-6xl space-y-16">
-          <section className="relative overflow-hidden rounded-[36px] border border-slate-200/80 bg-white/78 px-6 py-8 shadow-[0_30px_90px_rgba(15,23,42,0.08)] backdrop-blur-2xl sm:px-10 sm:py-12 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none">
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-sky-400/50 to-transparent" />
-            <div className="absolute -right-20 top-[-80px] h-56 w-56 rounded-full bg-sky-400/10 blur-3xl dark:bg-sky-400/12" />
-            <div className="absolute -left-12 bottom-[-80px] h-44 w-44 rounded-full bg-indigo-400/8 blur-3xl dark:bg-indigo-400/10" />
+          <section className="relative overflow-hidden rounded-[36px] border border-[rgba(99,102,241,0.12)] bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(241,244,255,0.74))] px-6 py-8 shadow-[0_30px_90px_rgba(79,70,229,0.09)] backdrop-blur-2xl sm:px-10 sm:py-12 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none">
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-indigo-300/70 to-transparent" />
+            <div className="absolute -right-20 top-[-80px] h-56 w-56 rounded-full bg-cyan-300/20 blur-3xl dark:bg-cyan-300/12" />
+            <div className="absolute -left-12 bottom-[-80px] h-44 w-44 rounded-full bg-indigo-400/12 blur-3xl dark:bg-indigo-400/10" />
 
             <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1.15fr)_360px] lg:items-center">
               <div className="space-y-8 text-center lg:text-left">
@@ -196,7 +196,7 @@ export default async function HomePage() {
                 </div>
               </div>
 
-              <Card className="relative border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(241,247,255,0.9))] shadow-[0_24px_70px_rgba(15,23,42,0.08)] dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] dark:shadow-none">
+              <Card className="relative border-[rgba(99,102,241,0.14)] bg-[linear-gradient(180deg,rgba(255,255,255,0.98),rgba(240,243,255,0.92))] shadow-[0_24px_70px_rgba(79,70,229,0.12)] dark:border-white/10 dark:bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.04))] dark:shadow-none">
                 <CardHeader className="space-y-4">
                   <div className="flex items-center gap-2">
                     <span className="h-2.5 w-2.5 rounded-full bg-slate-300 dark:bg-slate-600" />
@@ -223,7 +223,7 @@ export default async function HomePage() {
                   <ul className="space-y-3">
                     {starterKitPlan.features.slice(0, 4).map((feature) => (
                       <li
-                        className="rounded-2xl border border-slate-200/80 bg-white/85 px-4 py-3 text-sm text-slate-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-200"
+                        className="rounded-2xl border border-[rgba(99,102,241,0.12)] bg-white/88 px-4 py-3 text-sm text-slate-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-200"
                         key={feature}
                       >
                         {feature}
@@ -252,7 +252,7 @@ export default async function HomePage() {
               {content.includedCards.map((card) => (
                 <Card
                   key={card.title}
-                  className="border-slate-200/80 bg-white/88 shadow-[0_20px_50px_rgba(15,23,42,0.07)] dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none"
+                className="border-[rgba(99,102,241,0.12)] bg-white/88 shadow-[0_20px_50px_rgba(79,70,229,0.08)] dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none"
                 >
                   <CardHeader className="space-y-2">
                     <CardTitle>{card.title}</CardTitle>
@@ -268,7 +268,7 @@ export default async function HomePage() {
           </section>
 
           <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-start">
-            <Card className="border-slate-200/80 bg-white/88 shadow-[0_20px_50px_rgba(15,23,42,0.07)] dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none">
+            <Card className="border-[rgba(99,102,241,0.12)] bg-white/88 shadow-[0_20px_50px_rgba(79,70,229,0.08)] dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none">
               <CardHeader className="space-y-3">
                 <CardDescription>{content.previewEyebrow}</CardDescription>
                 <CardTitle className="text-3xl">{content.previewTitle}</CardTitle>
@@ -281,7 +281,7 @@ export default async function HomePage() {
                   {content.previewItems.map((item, index) => (
                     <div
                       key={item}
-                      className="flex items-center justify-between rounded-2xl border border-slate-200/80 bg-slate-50/80 px-4 py-3 text-sm text-slate-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-200"
+                      className="flex items-center justify-between rounded-2xl border border-[rgba(99,102,241,0.12)] bg-slate-50/84 px-4 py-3 text-sm text-slate-700 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-200"
                     >
                       <span>{item}</span>
                       <span className="text-xs uppercase tracking-[0.16em] text-slate-400 dark:text-slate-500">
@@ -293,7 +293,7 @@ export default async function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="border-slate-200/80 bg-white/88 shadow-[0_20px_50px_rgba(15,23,42,0.07)] dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none">
+            <Card className="border-[rgba(99,102,241,0.12)] bg-white/88 shadow-[0_20px_50px_rgba(79,70,229,0.08)] dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none">
               <CardHeader className="space-y-3">
                 <CardDescription>{content.faqEyebrow}</CardDescription>
                 <CardTitle className="text-3xl">{content.faqTitle}</CardTitle>
@@ -313,7 +313,7 @@ export default async function HomePage() {
             </Card>
           </section>
 
-          <section className="rounded-[32px] border border-slate-200/80 bg-white/82 px-6 py-8 text-center shadow-[0_20px_60px_rgba(15,23,42,0.07)] sm:px-10 sm:py-10 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none">
+          <section className="rounded-[32px] border border-[rgba(99,102,241,0.12)] bg-[linear-gradient(180deg,rgba(255,255,255,0.86),rgba(243,245,255,0.82))] px-6 py-8 text-center shadow-[0_20px_60px_rgba(79,70,229,0.08)] sm:px-10 sm:py-10 dark:border-white/10 dark:bg-white/[0.04] dark:shadow-none">
             <div className="mx-auto max-w-3xl space-y-5">
               <h2 className="text-3xl font-semibold tracking-[-0.03em] text-slate-950 dark:text-white">
                 {content.finalTitle}

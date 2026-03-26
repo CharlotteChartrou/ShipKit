@@ -67,7 +67,7 @@ export default async function DashboardPage() {
 
       <div className="grid gap-4 md:grid-cols-3">
         <Card className="relative overflow-hidden">
-          <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-slate-300/70 to-transparent dark:via-white/20" />
+          <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-indigo-300/80 to-transparent dark:via-white/20" />
           <CardHeader>
             <CardDescription>{copy.dashboard.activePlan}</CardDescription>
             <CardTitle className="capitalize">{appUser.subscription_plan}</CardTitle>
@@ -77,7 +77,7 @@ export default async function DashboardPage() {
           </CardContent>
         </Card>
         <Card className="relative overflow-hidden">
-          <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-slate-300/70 to-transparent dark:via-white/20" />
+          <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-indigo-300/80 to-transparent dark:via-white/20" />
           <CardHeader>
             <CardDescription>{copy.dashboard.workspaceCreated}</CardDescription>
             <CardTitle>{new Date(appUser.created_at).toLocaleDateString()}</CardTitle>
@@ -87,7 +87,7 @@ export default async function DashboardPage() {
           </CardContent>
         </Card>
         <Card className="relative overflow-hidden">
-          <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-slate-300/70 to-transparent dark:via-white/20" />
+          <div className="absolute inset-x-6 top-0 h-px bg-gradient-to-r from-transparent via-indigo-300/80 to-transparent dark:via-white/20" />
           <CardHeader>
             <CardDescription>{copy.dashboard.primaryEmail}</CardDescription>
             <CardTitle className="truncate">{appUser.email}</CardTitle>
@@ -106,31 +106,31 @@ export default async function DashboardPage() {
           </CardHeader>
           <CardContent className="space-y-4 text-sm text-slate-700 dark:text-slate-300">
             <div className="grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-slate-200 bg-white/80 p-4 dark:border-white/10 dark:bg-white/5">
+              <div className="rounded-2xl border border-[rgba(99,102,241,0.12)] bg-white/82 p-4 dark:border-white/10 dark:bg-white/5">
                 <p className="text-slate-500 dark:text-slate-400">{copy.dashboard.workspaceId}</p>
                 <p className="mt-1 break-all text-slate-950 dark:text-white">{appUser.id}</p>
               </div>
-              <div className="rounded-2xl border border-slate-200 bg-white/80 p-4 dark:border-white/10 dark:bg-white/5">
+              <div className="rounded-2xl border border-[rgba(99,102,241,0.12)] bg-white/82 p-4 dark:border-white/10 dark:bg-white/5">
                 <p className="text-slate-500 dark:text-slate-400">{copy.dashboard.emailVerified}</p>
                 <p className="mt-1 text-slate-950 dark:text-white">{user.email_confirmed_at ? (locale === "fr" ? "Oui" : "Yes") : (locale === "fr" ? "Non" : "No")}</p>
               </div>
             </div>
-            <div className="rounded-2xl border border-slate-200 bg-white/80 p-4 dark:border-white/10 dark:bg-white/5">
+            <div className="rounded-2xl border border-[rgba(99,102,241,0.12)] bg-white/82 p-4 dark:border-white/10 dark:bg-white/5">
               <p className="text-slate-500 dark:text-slate-400">{copy.dashboard.recommendedNext}</p>
               <p className="mt-1 leading-6 text-slate-950 dark:text-white">
                 {copy.dashboard.nextBody}
               </p>
             </div>
             <div className="grid gap-3 sm:grid-cols-3">
-              <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 dark:border-white/10 dark:bg-white/[0.04]">
+              <div className="rounded-2xl border border-[rgba(99,102,241,0.12)] bg-slate-50/84 p-4 dark:border-white/10 dark:bg-white/[0.04]">
                 <p className="text-xs font-medium uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">{copy.dashboard.access}</p>
                 <p className="mt-2 text-lg font-semibold text-slate-950 dark:text-white">{copy.dashboard.live}</p>
               </div>
-              <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 dark:border-white/10 dark:bg-white/[0.04]">
+              <div className="rounded-2xl border border-[rgba(99,102,241,0.12)] bg-slate-50/84 p-4 dark:border-white/10 dark:bg-white/[0.04]">
                 <p className="text-xs font-medium uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">{copy.common.plan}</p>
                 <p className="mt-2 text-lg font-semibold text-slate-950 dark:text-white">{appUser.subscription_status}</p>
               </div>
-              <div className="rounded-2xl border border-slate-200 bg-slate-50/80 p-4 dark:border-white/10 dark:bg-white/[0.04]">
+              <div className="rounded-2xl border border-[rgba(99,102,241,0.12)] bg-slate-50/84 p-4 dark:border-white/10 dark:bg-white/[0.04]">
                 <p className="text-xs font-medium uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">{copy.dashboard.theme}</p>
                 <p className="mt-2 text-lg font-semibold text-slate-950 dark:text-white">{copy.dashboard.adaptive}</p>
               </div>
@@ -175,7 +175,7 @@ export default async function DashboardPage() {
           </div>
 
           {projectData.projects.length === 0 ? (
-            <div className="rounded-2xl border border-dashed border-slate-300/80 bg-slate-50/80 p-6 dark:border-white/10 dark:bg-white/[0.03]">
+            <div className="rounded-2xl border border-dashed border-indigo-200/80 bg-[linear-gradient(180deg,rgba(248,250,255,0.92),rgba(242,245,255,0.9))] p-6 dark:border-white/10 dark:bg-white/[0.03]">
               <p className="text-base font-medium text-slate-950 dark:text-white">
                 {locale === "fr" ? "Aucun projet pour le moment" : "No projects yet"}
               </p>
@@ -189,7 +189,7 @@ export default async function DashboardPage() {
             <div className="grid gap-3">
               {projectData.projects.map((project) => (
                 <div
-                  className="rounded-2xl border border-slate-200 bg-white/80 px-4 py-4 dark:border-white/10 dark:bg-white/5"
+                  className="rounded-2xl border border-[rgba(99,102,241,0.12)] bg-white/82 px-4 py-4 dark:border-white/10 dark:bg-white/5"
                   key={project.id}
                 >
                   <div className="flex items-center justify-between gap-4">
@@ -199,7 +199,7 @@ export default async function DashboardPage() {
                         {new Date(project.created_at).toLocaleString()}
                       </p>
                     </div>
-                    <span className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300">
+                    <span className="rounded-full border border-[rgba(99,102,241,0.12)] bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600 dark:border-white/10 dark:bg-white/[0.04] dark:text-slate-300">
                       {locale === "fr" ? "Projet" : "Project"}
                     </span>
                   </div>
